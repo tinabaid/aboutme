@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aboutme</title>
+</head>
+<body>
+    var readlineSync = require("readline-sync"); 
+score=0;
+
+var userName = readlineSync.question ("What's your name? ");
+
+console.log(" Hey " + userName + " do you know Tina?  ");
+
+
+
+function play(question,answer){
+  var userAnswer = readlineSync.question(question);
+
+  if (userAnswer === answer){
+    console.log("right! ")
+    score=score +1 ;
+  } else{
+    console.log("wrong!");
+  }
+
+  console.log("current score:", score);
+  console.log("--------");
+
+}
+
+var questions= [{
+  question: "Who is my favourite actor? ",
+  answer: "shahrukh"
+},
+{
+  question:"what is my favourite food? ",
+  answer:"momos"
+}]
+
+for (var i=0; i<questions.length; i++){
+  var currentQuestion =  questions[i];
+  play(currentQuestion.question,
+  currentQuestion.answer)
+}
+
+console.log("yay! your final score: ", score);
+</body>
+</html>
